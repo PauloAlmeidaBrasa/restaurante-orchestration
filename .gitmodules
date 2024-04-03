@@ -1,0 +1,3 @@
+[submodule "api-cardapio"]
+	path = api-cardapio
+	url = https://github.com/PauloAlmieda/api-cardapio.git

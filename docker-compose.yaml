@@ -1,37 +1,10 @@
-version: '3.8'
+version: '3'
 
 services:
-  api-restaurant:
+  api-card:
     build:
-      context: ./api-restaurant
+      context: ./api-cardapio
     ports:
-      - "8001:8001"
-    networks:
-      - my-network
-    environment:
-      - DB_HOST=db
-      - DB_PORT=3306
-
-  # product-service:
-  #   build:
-  #     context: ./product-service
-  #   ports:
-  #     - "8002:8002"
-  #   networks:
-  #     - my-network
-  #   environment:
-  #     - DB_HOST=db
-  #     - DB_PORT=3306
-
-  # db:
-  #   image: mysql:5.7
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=root
-  #     - MYSQL_DATABASE=my_database
-  #   ports:
-  #     - "3306:3306"
-  #   networks:
-  #     - my-network
-
-networks:
-  my-network:
+      - "8000:8000"
+    volumes:
+      - ./api-cardapio:/var/www/html

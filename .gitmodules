@@ -1,3 +1,6 @@
 [submodule "api-cardapio"]
 	path = api-cardapio
 	url = https://github.com/PauloAlmieda/api-cardapio.git
+[submodule "front-restaurante"]
+	path = front-restaurante
+	url = https://github.com/PauloAlmieda/front-restaurante.git

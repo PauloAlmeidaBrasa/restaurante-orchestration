@@ -1,10 +1,26 @@
 version: '3'
 
 services:
-  api-card:
+  api-cardapio:
     build:
       context: ./api-cardapio
     ports:
       - "8000:8000"
     volumes:
       - ./api-cardapio:/var/www/html
+  front-restaurante:
+    build:
+      context: ./front-restaurante
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front-restaurante:/app  # Mount local directory to container
+  # db:
+  #   image: mysql:latest
+  #   environment:
+  #     MYSQL_DATABASE: your_database_name
+  #     MYSQL_USER: your_database_user
+  #     MYSQL_PASSWORD: your_database_password
+  #     MYSQL_ROOT_PASSWORD: your_mysql_root_password
+  #   ports:
+  #     - "3306:3306"

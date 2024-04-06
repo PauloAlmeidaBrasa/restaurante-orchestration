@@ -4,3 +4,6 @@
 [submodule "front-restaurante"]
 	path = front-restaurante
 	url = https://github.com/PauloAlmieda/front-restaurante.git
+[submodule "api-restaurante"]
+	path = api-restaurante
+	url = https://github.com/PauloAlmieda/api-restaurante.git

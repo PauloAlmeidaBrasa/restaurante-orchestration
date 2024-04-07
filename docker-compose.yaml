@@ -1,13 +1,13 @@
 version: '3'
 
 services:
-  api-cardapio:
+  api-restaurante:
     build:
-      context: ./api-cardapio
+      context: ./api-restaurante
     ports:
       - "8000:8000"
     volumes:
-      - ./api-cardapio:/var/www/html
+      - ./api-restaurante:/var/www/html
   front-restaurante:
     build:
       context: ./front-restaurante

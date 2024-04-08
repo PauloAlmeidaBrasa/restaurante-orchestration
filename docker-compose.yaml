@@ -14,13 +14,35 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./front-restaurante:/app  # Mount local directory to container
-  # db:
-  #   image: mysql:latest
-  #   environment:
-  #     MYSQL_DATABASE: your_database_name
-  #     MYSQL_USER: your_database_user
-  #     MYSQL_PASSWORD: your_database_password
-  #     MYSQL_ROOT_PASSWORD: your_mysql_root_password
-  #   ports:
-  #     - "3306:3306"
+      - ./front-restaurante:/app  # Mount local directory to containe
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: restaurante
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      TZ: "UTC"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
+ #db:
+  #  image: mysql:latest
+   # container_name: mysql
+    #restart: unless-stopped
+    #environment:
+     # MYSQL_ROOT_PASSWORD: example_password
+      #MYSQL_DATABASE: your_database_name
+      #MYSQL_USER: your_database_user
+      #MYSQL_PASSWORD: your_database_password
+    #ports:
+     # - "3306:3306"
+    #volumes:
+    #  - mysql_data:/var/lib/mysql

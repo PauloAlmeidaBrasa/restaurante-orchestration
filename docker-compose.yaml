@@ -8,6 +8,8 @@ services:
       - "8000:8000"
     volumes:
       - ./api-restaurante:/var/www/html
+    networks:
+      - restaurante-network
   front-restaurante:
     build:
       context: ./front-restaurante
@@ -16,10 +18,10 @@ services:
     volumes:
       - ./front-restaurante:/app  # Mount local directory to containe
 
-  db:
+  restaurante-db-migrations:
     image: mysql:8.0
-    container_name: mysql
-    restart: unless-stopped
+    #container_name: mysql-base
+    #restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: restaurante
@@ -29,9 +31,14 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-
+    networks:
+      - restaurante-network
 volumes:
   mysql_data:
+
+networks:
+ restaurante-network:
+  driver: bridge
 
  #db:
   #  image: mysql:latest
